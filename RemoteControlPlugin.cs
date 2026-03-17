@@ -19,7 +19,7 @@ namespace RemoteControl
         private readonly TcpCommandServer _server = new TcpCommandServer();
 
         public string Name => "RemoteControl";
-        public string Author => "Custom";
+        public string Author => "Rushtothesun";
         public string Description => "LAN-based remote command center for FollowBot. Replaces in-game chat commands.";
         public string Version => "1.0";
         public UserControl Control => _gui ?? (_gui = new RemoteControlGui());
