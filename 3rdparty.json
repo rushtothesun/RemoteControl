@@ -1,0 +1,16 @@
+{
+  "AssemblyName": "RemoteControl",
+  "FileList": [
+    "RemoteControlPlugin.cs",
+    "RemoteControlSettings.cs",
+    "RemoteControlGui.xaml",
+    "RemoteControlGui.xaml.cs",
+    "RemoteControlGui.baml",
+    "RemoteControlGui.g.cs",
+    "TcpCommandServer.cs",
+    "CommandDispatcher.cs",
+    "HttpCommandSender.cs"
+  ],
+  "Dependencies": [],
+  "References": []
+}
