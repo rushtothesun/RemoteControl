@@ -20,7 +20,11 @@ This replaces the old approach of typing commands into party chat, which was slo
 
 | Command | What it does |
 |---------|-------------|
+| BotStart / BotStop | Start/stop the bot (handled directly, not through FollowBot) |
 | StartFollow / StopFollow | Toggle following |
+| FollowTownOn/Off | Toggle follow in town |
+| FollowHideoutOn/Off | Toggle follow in hideout |
+| FollowHeistOn/Off | Toggle follow in heist |
 | StartAttack / StopAttack | Toggle combat |
 | StartLoot / StopLoot | Toggle looting |
 | StartPortal / StopPortal | Toggle auto-TP |
@@ -29,16 +33,12 @@ This replaces the old approach of typing commands into party chat, which was slo
 | EnterPortal | Enter a nearby portal |
 | Stash | Go stash inventory |
 | NewInstance | Create new map instance |
-| FollowTownOn/Off | Toggle follow in town |
-| FollowHideoutOn/Off | Toggle follow in hideout |
-| FollowHeistOn/Off | Toggle follow in heist |
 | AutoDepositOn/Off | Toggle auto-deposit |
-| UseGuildStash / UseRegularStash | Switch stash type |
+| UseRegularStash / UseGuildStash | Switch stash type |
 | UltPortalOn/Off | Toggle portal after Ultimatum |
 | SetUltTimer:N | Set Ultimatum portal search time (seconds) |
 | Unloader | Trigger Ultimatum unloader sweep |
 | SetUnloaderDelay:N | Set unloader start delay (ms) |
-| BotStart / BotStop | Start/stop the bot (handled directly, not through FollowBot) |
 
 ## Setup
 
