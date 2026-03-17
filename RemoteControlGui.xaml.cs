@@ -184,6 +184,70 @@ namespace RemoteControl
             timerRow.Children.Add(timerLabel);
             stack.Children.Add(timerRow);
 
+            var unloaderRow = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 2, 0, 2) };
+            unloaderRow.Children.Add(new TextBlock
+            {
+                Text = "Unloader",
+                Width = 55,
+                VerticalAlignment = VerticalAlignment.Center,
+                FontSize = 11
+            });
+            unloaderRow.Children.Add(MakeButton("✓", "Unloader", tag, Color.FromRgb(76, 175, 80), Brushes.White, 28, 10));
+            stack.Children.Add(unloaderRow);
+
+            var delayRow = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 1, 0, 3) };
+            delayRow.Children.Add(new TextBlock
+            {
+                Text = "Delay",
+                Width = 55,
+                VerticalAlignment = VerticalAlignment.Center,
+                FontSize = 11
+            });
+            var delaySlider = new Slider
+            {
+                Minimum = 1500,
+                Maximum = 10000,
+                Value = 2000,
+                Width = 80,
+                VerticalAlignment = VerticalAlignment.Center,
+                TickFrequency = 100,
+                IsSnapToTickEnabled = true,
+                Tag = tag
+            };
+            var delayLabel = new TextBlock
+            {
+                Text = "2.0s",
+                FontSize = 10,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(4, 0, 0, 0),
+                Width = 30
+            };
+            delaySlider.ValueChanged += (s, args) =>
+            {
+                var val = (int)args.NewValue;
+                delayLabel.Text = (val / 1000.0).ToString("0.0") + "s";
+                var t = (string)delaySlider.Tag;
+                var cmd = "SetUnloaderDelay:" + val;
+                var settings = RemoteControlSettings.Instance;
+
+                if (SyncAllCheckbox?.IsChecked == true && settings.IsCommanderMode)
+                {
+                    CommandDispatcher.Dispatch(cmd);
+                    SendToAllRemotes(cmd);
+                }
+                else if (t == "LOCAL")
+                {
+                    CommandDispatcher.Dispatch(cmd);
+                }
+                else if (settings.IsCommanderMode)
+                {
+                    ThreadPool.QueueUserWorkItem(_ => HttpCommandSender.Send(t, cmd));
+                }
+            };
+            delayRow.Children.Add(delaySlider);
+            delayRow.Children.Add(delayLabel);
+            stack.Children.Add(delayRow);
+
             group.Content = stack;
             BotPanelsContainer.Children.Add(group);
         }
