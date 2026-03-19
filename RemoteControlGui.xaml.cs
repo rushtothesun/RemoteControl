@@ -99,17 +99,21 @@ namespace RemoteControl
             stack.Children.Add(MakeToggleRow("Loot", "StartLoot", "StopLoot", tag));
             stack.Children.Add(MakeToggleRow("Auto-TP", "StartPortal", "StopPortal", tag));
 
-            // Action buttons on their own row
+            // Action buttons
             var actionsRow = new WrapPanel { Margin = new Thickness(0, 4, 0, 2) };
             actionsRow.Children.Add(MakeButton("Teleport", "Teleport", tag));
             actionsRow.Children.Add(MakeButton("Open Portal", "OpenPortal", tag));
-            actionsRow.Children.Add(MakeButton("Enter Portal", "EnterPortal", tag));
             stack.Children.Add(actionsRow);
 
-            // Other actions
+            var actionsRow2 = new WrapPanel { Margin = new Thickness(0, 2, 0, 2) };
+            actionsRow2.Children.Add(MakeButton("Enter Portal", "EnterPortal", tag));
+            actionsRow2.Children.Add(MakeButton("New Instance", "NewInstance", tag));
+            stack.Children.Add(actionsRow2);
+
+            // Stash actions
             var otherRow = new WrapPanel { Margin = new Thickness(0, 2, 0, 2) };
             otherRow.Children.Add(MakeButton("Stash", "Stash", tag));
-            otherRow.Children.Add(MakeButton("New Instance", "NewInstance", tag));
+            otherRow.Children.Add(MakeButton("Stash $", "StashCurrency", tag));
             stack.Children.Add(otherRow);
 
             // --- Stash settings ---

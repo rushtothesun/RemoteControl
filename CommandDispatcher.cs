@@ -29,6 +29,7 @@ namespace RemoteControl
             { "OpenPortal",     "RC_open_portal" },
             { "EnterPortal",    "RC_enter_portal" },
             { "Stash",          "RC_stash" },
+            { "StashCurrency",  "RC_stash_currency" },
             { "NewInstance",    "RC_new_instance" },
             { "FollowTownOn",   "RC_follow_town_on" },
             { "FollowTownOff",  "RC_follow_town_off" },
